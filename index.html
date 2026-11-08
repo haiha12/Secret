@@ -111,11 +111,11 @@
         
         <!-- Shelf with Small Bottles -->
         <div class="w-[85%] max-w-md h-6 bg-amber-700 rounded-lg shadow-[0_10px_20px_rgba(0,0,0,0.2)] z-20 flex justify-center gap-6 sm:gap-10 md:gap-14 items-end pb-4 border-b-4 border-amber-900 relative mb-6 md:mb-12">
-            <!-- Bottle 1 (Pink) -->
-            <div id="bottle-1" class="bottle-hover relative" onclick="pourChemical('bottle-1', '#ec4899')">
+            <!-- Bottle 1 (Red) -->
+            <div id="bottle-1" class="bottle-hover relative" onclick="pourChemical('bottle-1', '#ef4444')">
                 <svg viewBox="0 0 100 120" class="w-14 h-16 sm:w-16 sm:h-20 md:w-20 md:h-24 drop-shadow-md">
                     <!-- Liquid -->
-                    <path d="M 28 60 L 72 60 L 85 105 A 5 5 0 0 1 80 110 L 20 110 A 5 5 0 0 1 15 105 Z" fill="#ec4899"/>
+                    <path d="M 28 60 L 72 60 L 85 105 A 5 5 0 0 1 80 110 L 20 110 A 5 5 0 0 1 15 105 Z" fill="#ef4444"/>
                     <!-- Glass -->
                     <path d="M40,10 L60,10 L60,30 L90,100 A10,10 0 0,1 80,115 L20,115 A10,10 0 0,1 10,100 L40,30 Z" fill="rgba(255,255,255,0.4)" stroke="#1e293b" stroke-width="4" stroke-linejoin="round"/>
                     <!-- Highlight -->
@@ -125,11 +125,11 @@
                 </svg>
             </div>
             
-            <!-- Bottle 2 (Cyan) -->
-            <div id="bottle-2" class="bottle-hover relative" onclick="pourChemical('bottle-2', '#06b6d4')">
+            <!-- Bottle 2 (Blue) -->
+            <div id="bottle-2" class="bottle-hover relative" onclick="pourChemical('bottle-2', '#3b82f6')">
                 <svg viewBox="0 0 100 120" class="w-14 h-16 sm:w-16 sm:h-20 md:w-20 md:h-24 drop-shadow-md">
                     <!-- Liquid -->
-                    <path d="M 28 60 L 72 60 L 85 105 A 5 5 0 0 1 80 110 L 20 110 A 5 5 0 0 1 15 105 Z" fill="#06b6d4"/>
+                    <path d="M 28 60 L 72 60 L 85 105 A 5 5 0 0 1 80 110 L 20 110 A 5 5 0 0 1 15 105 Z" fill="#3b82f6"/>
                     <!-- Glass -->
                     <path d="M40,10 L60,10 L60,30 L90,100 A10,10 0 0,1 80,115 L20,115 A10,10 0 0,1 10,100 L40,30 Z" fill="rgba(255,255,255,0.4)" stroke="#1e293b" stroke-width="4" stroke-linejoin="round"/>
                     <!-- Highlight -->
@@ -202,36 +202,20 @@
 
     <!-- Greeting Card Overlay (Hidden initially) -->
     <div id="greeting-overlay" class="fixed inset-0 bg-black/60 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-1000 z-50 flex items-center justify-center p-3 sm:p-4">
-        <div id="greeting-card" class="bg-white/95 rounded-[2rem] p-6 sm:p-8 md:p-12 max-w-3xl w-[95%] max-h-[90dvh] overflow-y-auto shadow-2xl transform scale-50 transition-transform duration-1000 ease-out border-4 border-indigo-200 relative">
+        <div id="greeting-card" class="bg-white/95 rounded-[2rem] p-6 sm:p-8 md:p-12 max-w-3xl w-[95%] max-h-[90dvh] overflow-hidden shadow-2xl transform scale-50 transition-transform duration-1000 ease-out border-4 border-indigo-200 relative flex flex-col">
             
             <!-- Cute corner decorations -->
-            <div class="absolute top-[-20px] left-[-20px] w-24 h-24 md:w-32 md:h-32 bg-pink-300 rounded-full mix-blend-multiply filter blur-2xl opacity-70"></div>
-            <div class="absolute bottom-[-20px] right-[-20px] w-24 h-24 md:w-32 md:h-32 bg-cyan-300 rounded-full mix-blend-multiply filter blur-2xl opacity-70"></div>
+            <div class="absolute top-[-20px] left-[-20px] w-24 h-24 md:w-32 md:h-32 bg-pink-300 rounded-full mix-blend-multiply filter blur-2xl opacity-70 pointer-events-none"></div>
+            <div class="absolute bottom-[-20px] right-[-20px] w-24 h-24 md:w-32 md:h-32 bg-cyan-300 rounded-full mix-blend-multiply filter blur-2xl opacity-70 pointer-events-none"></div>
             
-            <div class="relative z-10 text-center flex flex-col items-center">
-                <!-- Icon -->
-                <div class="w-14 h-14 md:w-20 md:h-20 bg-indigo-100 rounded-full flex items-center justify-center mb-4 shadow-inner shrink-0">
-                    <span class="text-3xl md:text-4xl">👨‍🏫</span>
+            <div class="relative z-10 text-center flex flex-col items-center flex-1 min-h-0">
+                <!-- Dynamic Content Container -->
+                <div id="card-dynamic-content" class="w-full flex flex-col items-center flex-1 min-h-0">
+                    <!-- Content will be injected here via JS -->
                 </div>
                 
-                <h2 class="text-[clamp(1.5rem,4vw,2.5rem)] font-extrabold mb-3 md:mb-4 leading-tight">
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-800 to-purple-700">Chúc mừng ngày nhà giáo</span> 
-                    <br class="hidden sm:block" />
-                    <span class="text-pink-500 inline-block transform hover:scale-110 transition-transform">Việt Nam 20/11!</span>
-                </h2>
-                
-                <div class="w-16 md:w-24 h-1.5 bg-gradient-to-r from-pink-400 to-indigo-500 rounded-full mb-4 md:mb-6 shrink-0"></div>
-                
-                <p class="text-[clamp(1rem,2vw,1.3rem)] text-slate-700 mb-4 md:mb-6 leading-relaxed font-medium">
-                    Người ta nói áp suất cao mới tạo ra kim cương, và sự chịu đựng của thầy <span class="font-bold text-indigo-700">Tráng</span> trước 5 đứa con gái chúng em chính là minh chứng cho điều đó!
-                </p>
-                
-                <p class="text-[clamp(0.85rem,1.6vw,1.1rem)] text-pink-600 font-bold italic bg-pink-50 px-5 md:px-8 py-4 rounded-2xl inline-block shadow-sm">
-                    "Chúc thầy 20/11 luôn 'Tráng' kiện như cái tên của thầy, lúc nào cũng dồi dào năng lượng để không bị tụi em làm cho 'biến tính' nhé thầy! ✨"
-                </p>
-                
-                <button onclick="resetLab()" class="mt-6 md:mt-8 px-6 md:px-8 py-3 bg-indigo-500 hover:bg-indigo-600 text-white font-bold rounded-full shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1 text-[clamp(0.9rem,1.5vw,1.1rem)]">
-                    Làm Lại Thí Nghiệm 🧪
+                <button onclick="resetLab()" class="mt-6 md:mt-8 px-6 md:px-8 py-3 bg-indigo-500 hover:bg-indigo-600 text-white font-bold rounded-full shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1 text-[clamp(0.9rem,1.5vw,1.1rem)] shrink-0">
+                    Thử Phản Ứng Khác 🧪
                 </button>
             </div>
         </div>
@@ -244,15 +228,23 @@
         
         let chemicalsAdded = 0;
         let isAnimating = false;
+        let selectedColors = [];
         const bigFlaskLiquid = document.getElementById('main-liquid');
         const bigFlaskContainer = document.getElementById('big-flask-container');
         let currentLiquidColor = 'transparent';
 
-        // Mix colors logic (simulated by returning predetermined vibrant colors based on steps)
-        function getMixedColor(newColor) {
-            if (chemicalsAdded === 1) return newColor;
-            // When mixed (2nd chemical), return a vibrant purple/magenta representing the reaction
-            return '#a855f7'; 
+        // Mix colors logic determining real visual output
+        function getMixedColor(colors) {
+            if (colors.length === 1) return colors[0];
+            
+            const colorPair = colors.slice().sort().join('-');
+            // Red: #ef4444, Blue: #3b82f6, Yellow: #eab308
+            switch (colorPair) {
+                case '#3b82f6-#ef4444': return '#8b5cf6'; // Blue + Red = Purple
+                case '#eab308-#ef4444': return '#f97316'; // Yellow + Red = Orange
+                case '#3b82f6-#eab308': return '#22c55e'; // Blue + Yellow = Green
+                default: return '#a855f7';
+            }
         }
 
         async function pourChemical(bottleId, color) {
@@ -262,6 +254,7 @@
             if (isAnimating || chemicalsAdded >= 2 || bottleEl.classList.contains('used-bottle')) return;
             
             isAnimating = true;
+            selectedColors.push(color);
             bottleEl.classList.remove('bottle-hover');
             bottleEl.classList.add('used-bottle');
 
@@ -308,7 +301,7 @@
 
             // 5. Raise liquid level inside the big flask
             chemicalsAdded++;
-            currentLiquidColor = getMixedColor(color);
+            currentLiquidColor = getMixedColor(selectedColors);
             
             await wait(300); // Wait for stream to visually hit the bottom
 
@@ -364,7 +357,7 @@
 
             // Show the Greeting Card overlay almost immediately after explosion starts
             await wait(200); 
-            showGreetingCard();
+            showGreetingCard(selectedColors);
         }
 
         function triggerExplosion() {
@@ -470,10 +463,55 @@
                 }));
             }, 250);
         }
+        
+        function getCardHTML(colors) {
+            const pair = colors.slice().sort().join('-');
+            
+            // Red: #ef4444, Blue: #3b82f6, Yellow: #eab308
+            if (pair === '#3b82f6-#ef4444') {
+                // Red + Blue -> Message 1
+                return `
+                    <div class="w-14 h-14 md:w-20 md:h-20 bg-indigo-100 rounded-full flex items-center justify-center mb-4 shadow-inner shrink-0"><span class="text-3xl md:text-4xl">👨‍🏫</span></div>
+                    <h1 class="text-2xl md:text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 mb-4 text-center">Chúc mừng ngày 19/11!</h1>
+                    <div class="overflow-y-auto w-full px-2" style="scrollbar-width: thin;">
+                        <p class="text-slate-700 text-[clamp(1rem,2vw,1.15rem)] leading-relaxed text-justify mb-4">Nhân ngày 19/11, tụi em chúc thầy Tráng luôn mạnh khỏe, tráng kiệt và <strong class="text-pink-600">NHANH CHÓNG LẤY VỢ!</strong> Thầy rước dâu hoành tráng đi thôi, tụi em quậy thầy chán rồi, giờ chỉ đợi ngày được mặc váy đẹp đi ăn cỗ cưới của thầy thôi ạ!</p>
+                        <div class="bg-pink-50 p-4 rounded-xl text-center shadow-inner mt-4"><p class="text-pink-600 italic font-medium">"Ký tên: Hội 5 electron tự do thích ăn cỗ cưới. ✨"</p></div>
+                    </div>
+                `;
+            } else if (pair === '#eab308-#ef4444') {
+                // Red + Yellow -> Message 2 (Poem)
+                return `
+                    <h1 class="text-xl md:text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 mb-4 text-center shrink-0">GỬI THẦY ĐOÀN BÁ TRÁNG</h1>
+                    <div class="text-slate-700 text-[clamp(0.9rem,1.8vw,1.1rem)] leading-relaxed text-center overflow-y-auto w-full pr-2 flex-1" style="scrollbar-width: thin;">
+                        <p class="mb-3">Tháng Mười Một lại về rồi,<br>Chúng em xin gửi đôi lời tri ân.<br>Chúc thầy sức khỏe muôn phần,<br>Niềm vui, hạnh phúc, tinh thần thật tươi.</p>
+                        <p class="mb-3">Ngày mười chín chúc thầy cười,<br>Ngày hai mươi đến, rạng ngời niềm vui.<br>Chúc thầy trẻ mãi không thôi,<br>Phong độ bền vững, chẳng trôi theo thời.</p>
+                        <p class="mb-3">Môn Hóa vốn lắm trò hay,<br>Phương trình cân mãi cả ngày chưa xong.<br>Có khi nguyên tử lòng vòng,<br>Có khi phản ứng làm lòng chúng em… đau.</p>
+                        <p class="mb-3">Chúc thầy chẳng gặp u sầu,<br>Không lo áp lực, bạc đầu vì Hóa.<br>Điểm cao cứ thế nở hoa,<br>Học trò chăm chỉ, thầy là nhất luôn!</p>
+                        <p class="mb-3">Chúc thầy hạnh phúc vuông tròn,<br>Gia đình êm ấm, chẳng còn âu lo.<br>Cảm ơn thầy đã chăm lo,<br>Dạy bao kiến thức, dặn dò chúng em.</p>
+                        <p class="mb-3">Dẫu mai năm tháng dài thêm,<br>Những giờ học Hóa vẫn in trong lòng.<br>Chúc thầy mãi giữ lửa hồng,<br>Hai ngày lễ đẹp, thành công rạng ngời!</p>
+                        <p class="mb-2 font-bold text-pink-600 bg-pink-50 p-4 rounded-xl shadow-sm inline-block">Chúng em xin hứa một điều:<br>Học Hóa chăm chỉ, bớt nhiều điểm âm.<br>Để thầy vui vẻ quanh năm,<br>Không còn bất lực mỗi lần gọi tên!</p>
+                    </div>
+                `;
+            } else {
+                // Blue + Yellow -> Message 3
+                return `
+                    <div class="w-14 h-14 md:w-20 md:h-20 bg-yellow-100 rounded-full flex items-center justify-center mb-4 shadow-inner shrink-0"><span class="text-3xl md:text-4xl">💍</span></div>
+                    <h1 class="text-2xl md:text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 mb-6 text-center">Chúc mừng thầy Tráng!</h1>
+                    <div class="text-slate-700 text-[clamp(1.1rem,2.5vw,1.3rem)] leading-relaxed text-center font-medium my-4 overflow-y-auto px-2" style="scrollbar-width: thin;">
+                        <p class="mb-4 bg-indigo-50 p-4 rounded-xl shadow-sm border border-indigo-100">Chúc thầy sức khỏe, yêu đời,<br>Sớm ngày lấy vợ, nụ cười thêm tươi.</p>
+                        <p class="bg-pink-50 p-4 rounded-xl shadow-sm border border-pink-100">Vinh hoa phú quý đủ đầy,<br><span class="text-pink-600 font-bold">Lấy vợ đừng quên học trò chúng em!</span></p>
+                    </div>
+                `;
+            }
+        }
 
-        function showGreetingCard() {
+        function showGreetingCard(colors) {
             const overlay = document.getElementById('greeting-overlay');
             const card = document.getElementById('greeting-card');
+            const contentContainer = document.getElementById('card-dynamic-content');
+            
+            // Inject dynamic content
+            contentContainer.innerHTML = getCardHTML(colors);
             
             overlay.classList.remove('opacity-0', 'pointer-events-none');
             card.classList.remove('scale-50');
@@ -484,6 +522,7 @@
             // Reset states
             chemicalsAdded = 0;
             isAnimating = false;
+            selectedColors = [];
             
             // Reset UI
             document.getElementById('greeting-overlay').classList.add('opacity-0', 'pointer-events-none');
